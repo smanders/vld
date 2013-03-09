@@ -29,7 +29,11 @@
 
 #include <windows.h>
 
-#pragma comment(lib, "vld.lib")
+#if defined _DLL
+# pragma comment(lib, "vld.lib")
+#else
+# pragma comment(lib, "vld-s.lib")
+#endif
 
 // Force a symbolic reference to the global VisualLeakDetector class object from
 // the DLL. This ensures that the DLL is loaded and linked with the program,
