@@ -7,6 +7,13 @@ endif()
 include_external_msproject(vld ${CMAKE_CURRENT_SOURCE_DIR}/vld.vcxproj)
 #######################################
 # install
+if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+  set(NUMBITS 64)
+elseif(CMAKE_SIZEOF_VOID_P EQUAL 4)
+  set(NUMBITS 32)
+else()
+  message(SEND_ERROR "vld cmake: NUMBITS not 64 or 32...")
+endif()
 if(${CMAKE_GENERATOR} MATCHES "Win64$")
   set(dbghelp setup/dbghelp/x64/dbghelp.dll)
   set(manifest setup/dbghelp/x64/Microsoft.DTfW.DHL.manifest)
