@@ -27,7 +27,11 @@
 
 #if defined _DEBUG || defined VLD_FORCE_ENABLE
 
+#define _WINSOCKAPI_ // stops windows.h including winsock.h
+#define NOMINMAX     // see http://support.microsoft.com/kb/143208
 #include <windows.h>
+#undef _WINSOCKAPI_
+#undef NOMINMAX
 
 #pragma comment(lib, "vld.lib")
 
