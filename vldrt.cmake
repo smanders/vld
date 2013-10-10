@@ -7,6 +7,7 @@ if(WIN32)
     set(dll_suffix "_x86")
   endif()
   set(vld_runtime
+    debug ${externpro_DIR}/include/visualleakdetector/vld.ini
     debug ${lib_DIR}/dbghelp.dll
     debug ${lib_DIR}/Microsoft.DTfW.DHL.manifest
     debug ${lib_DIR}/vld${dll_suffix}.dll
