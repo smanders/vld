@@ -4,7 +4,11 @@ if(CMAKE_CONFIGURATION_TYPES)
   set(CMAKE_CONFIGURATION_TYPES Release CACHE STRING
     "Set the configurations to what we need" FORCE)
 endif()
-include_external_msproject(vld ${CMAKE_CURRENT_SOURCE_DIR}/vld.vcxproj)
+if(MSVC12)
+  include_external_msproject(vld ${CMAKE_CURRENT_SOURCE_DIR}/vld_vc12.vcxproj)
+else()
+  include_external_msproject(vld ${CMAKE_CURRENT_SOURCE_DIR}/vld.vcxproj)
+endif()
 #######################################
 # install
 if(CMAKE_SIZEOF_VOID_P EQUAL 8)
