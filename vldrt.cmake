@@ -1,9 +1,8 @@
 if(WIN32)
+  set(vld_DIR ${externpro_DIR}/lib)
   if(${CMAKE_GENERATOR} MATCHES "Win64$")
-    set(vld_DIR ${externpro_DIR}/lib64)
     set(dll_suffix "_x64")
   else()
-    set(vld_DIR ${externpro_DIR}/lib32)
     set(dll_suffix "_x86")
   endif()
   set(vld_runtime
